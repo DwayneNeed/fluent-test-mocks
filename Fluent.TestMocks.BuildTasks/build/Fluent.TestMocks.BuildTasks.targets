@@ -1,0 +1,18 @@
+<Project TreatAsLocalProperty="TaskFolder;TaskAssembly">
+  <Target Name="SayHelloTarget">
+    <SayHello/>
+  </Target>
+
+  <Target Name="GenerateUnitFacades" DependsOnTargets="_GenerateUnitFacades" Condition="'@(UnitFacade)' != ''">
+    <ItemGroup>
+      <Compile Include="$(IntermediateOutputDir)UnitFacade.g.cs" />
+    </ItemGroup>
+
+    <GenerateUnitFacade UnitFacades="@(UnitFacade)"/>
+  </Target>
+
+  <PropertyGroup>
+    <CoreCompileDependsOn>SayHelloTarget;GenerateUnitFacades;$(CoreCompileDependsOn)</CoreCompileDependsOn>
+  </PropertyGroup>
+
+</Project>

@@ -1,0 +1,4 @@
+<!-- buildMultiTargeting/GreetingTasks.props -->
+<Project>
+  <Import Project="..\build\Fluent.TestMocks.BuildTasks.props" />
+</Project>
